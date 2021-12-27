@@ -145,5 +145,44 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.pink[300],
     ),
   );
-  }
+}
+```
+
+## Images & Assets
+
+1. NetworkImage - import image via URL
+
+```dart
+ body: const Center(
+  child: Image(
+    image: NetworkImage('https://images.unsplash.com/photo-1622028715355-ec58f12a7f9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=433&q=80'),
+    ),
+),
+
+// or
+body: Center(
+  child: Image.network('assets/images/sweet_2.jpg'),
+),
+
+```
+
+2. AssetImage - import image from your custom folder
+
+```yaml
+# Add path in pubspec.yaml
+assets:
+  - assets/images/
+```
+
+```dart
+body: const Center(
+  child: Image(
+    image: AssetImage('assets/images/sweet_1.jpg'),
+    ),
+),
+
+// or
+body: Center(
+  child: Image.asset('assets/images/sweet_2.jpg'),
+),
 ```
