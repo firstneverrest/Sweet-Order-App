@@ -24,8 +24,8 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.pink[300],
         
       ),
-      body: const Center(
-        child: Text("Let's order some sweet!"),
+      body: Center(
+        child: Image.asset('assets/images/sweet_2.jpg'),
       ),
       floatingActionButton: FloatingActionButton
         (
