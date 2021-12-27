@@ -104,3 +104,46 @@ void main() => runApp(MaterialApp(
 - pubspec.lock
 - pubspec.yaml - app meta data, config, custom font
 - `<project_name>`.iml
+
+## Hot Reload
+
+In order to enable hot reload during development, you need to use stateless widgets. It helps re-rendering that widget without hot restart but just click save.
+
+- Creating new stateless widgets class with `Flutter stateless widget` snippet. The class that was created, is your custom widget class.
+- Stateless widgets - the state of the widget cannot change over time like static data, background color, text.
+- Stateful widgets - the state of the widget can change over time like increasing number when clicking the button
+- `@override` - override build function that extends from StatelessWidget
+
+```dart
+class Home extends StatelessWidget {
+  const Home({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    appBar: AppBar(
+      title: const Text(
+        'Sweet Order App',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Kanit',
+          color: Colors.white
+        ),
+      ),
+      centerTitle: true,
+      backgroundColor: Colors.pink[300],
+
+    ),
+    body: const Center(
+      child: Text("Let's order some sweet!"),
+    ),
+    floatingActionButton: FloatingActionButton
+      (
+      child: const Icon(Icons.add),
+      onPressed: () {},
+      backgroundColor: Colors.pink[300],
+    ),
+  );
+  }
+```
