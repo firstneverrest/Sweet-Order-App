@@ -91,10 +91,10 @@ void main() => runApp(MaterialApp(
 
 - .dart_tool
 - .idea
-- android
+- android - store code in android version after building app
 - build - store build file when running app or prepare for production
-- ios
-- lib - widget, constants, main code
+- ios - store code in ios version after building app
+- lib - store .dart file and it was declared to be a starter point of Flutter app
 - test - testing app
 - web
 - .gitignore - version control ignore file
@@ -102,7 +102,7 @@ void main() => runApp(MaterialApp(
 - .packages
 - analysis.options.yaml
 - pubspec.lock
-- pubspec.yaml - app meta data, config, custom font
+- pubspec.yaml - config, custom font, using libraries
 - `<project_name>`.iml
 
 ## Hot Reload
@@ -185,4 +185,67 @@ body: const Center(
 body: Center(
   child: Image.asset('assets/images/sweet_2.jpg'),
 ),
+```
+
+## Button
+
+- Elevated Button - elevate when clicking the button
+- Text Button - on animation
+
+```
+child: ElevatedButton(
+  child: const Text(
+    'Order',
+    style: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Kanit',
+      color: Colors.white
+    ),
+  ),
+  onPressed: () {},
+  style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.all<Color>(Colors.pink),
+  ),
+)
+```
+
+## Container
+
+Use to wrap the widget and enable styling padding and other properties.
+
+```dart
+child: Container(
+  color: Colors.pink[300],
+  child: const Text('order sweet'),
+  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+),
+```
+
+- `EdgeInserts.all(20)` - set space of all directions.
+- `EdgeInserts.symmetric(horizontal: 30, vertical: 20)` - set space of horizontal and vertical direction
+- `EdgeInserts.fromLTRB(20, 30, 40, 20)` - set left space, top space, right space and bottom space, respectively.
+
+## Row & Column
+
+Row and Column are similar to flex box in CSS which you can put multiple widgets and align the widgets inside.
+
+- Row - main axis is horizontal direction
+- Column - main axis is vertical direction
+
+```dart
+body: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    const Text('Sweet1'),
+    const Text('Sweet2'),
+    TextButton(onPressed: () {}, child: const Text('Order')),
+    Container(
+      color: Colors.pink[300],
+      padding: const EdgeInsets.all(20),
+      child: const Text('Container'),
+    )
+  ],
+)
 ```
