@@ -343,3 +343,53 @@ class _UserListState extends State<UserList> {
   }
 }
 ```
+
+## Custom Classes
+
+When you need to work with multiple data, it is good to create their own data class.
+
+```dart
+// user.dart
+class User {
+  String name;
+  String email;
+
+  User({required this.name, required this.email});
+}
+```
+
+```dart
+// main.dart
+class _UserListState extends State<UserList> {
+  List<User> users = [
+    User(name: 'Leanne Graham', email: 'Sincere@gmail.com'),
+    User(name: 'Ervin Howell', email: 'Shanna@hotmail.com'),
+    User(name: 'Vincent Skywalker', email: 'Vincent@hotmail.com'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Sweet Order App',
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Kanit',
+                color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.pink[300],
+        ),
+        body: Center(
+            child: Column(
+          children: users.map((user) {
+            return Text('${user.name} - ${user.email}');
+          }).toList(),
+        )));
+  }
+```
+
+## Extract Widget
+
+Click refactor at the widget and choose 'extract widget' to automatically extract widget to another class.
