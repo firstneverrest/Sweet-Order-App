@@ -89,19 +89,18 @@ void main() => runApp(MaterialApp(
 
 ## Folder Structure
 
-- .dart_tool
+- .dart_tool - store dart tool like packages that be used in the project
 - .idea
 - android - store code in android version after building app
-- build - store build file when running app or prepare for production
 - ios - store code in ios version after building app
+- web - store code in web version after building app
+- build - store build file when running app or prepare for production
 - lib - store .dart file and it was declared to be a starter point of Flutter app
 - test - testing app
-- web
 - .gitignore - version control ignore file
-- .metadata
-- .packages
-- analysis.options.yaml
-- pubspec.lock
+- .metadata - tracks properties of the Flutter project (should not be manually edit)
+- analysis.options.yaml - code linter & analysis
+- pubspec.lock - lock version of the dependencies
 - pubspec.yaml - config, custom font, using libraries
 - `<project_name>`.iml
 
@@ -228,7 +227,7 @@ child: Container(
 
 ## Row & Column
 
-Row and Column are similar to flex box in CSS which you can put multiple widgets and align the widgets inside.
+Row and Column enable putting multiple widgets and aligning the widgets inside.
 
 - Row - main axis is horizontal direction
 - Column - main axis is vertical direction
@@ -248,4 +247,49 @@ body: Row(
     )
   ],
 )
+```
+
+## Flutter outline
+
+After install Flutter extension in VSCode, you could set VSCode to display outline in every widgets.
+The outline make your development easier.
+
+- Go to Setting in VSCode and check Preview Flutter UI Guides & Preview Flutter UI Guides Custom Tracking
+- Right click and choose refactor to use Flutter extension command like move widget up & down
+
+## Expanded widget
+
+Expanded widget is similar to flex box in CSS.
+
+```dart
+body: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.blue[300],
+        padding: const EdgeInsets.all(20),
+        child: const Text('Container1'),
+      ),
+    ),
+    Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.pink[300],
+        padding: const EdgeInsets.all(20),
+        child: const Text('Container2'),
+      ),
+    ),
+    Expanded(
+      flex: 3,
+      child: Container(
+        color: Colors.orange[300],
+        padding: const EdgeInsets.all(20),
+        child: const Text('Container3'),
+      ),
+    )
+  ],
+));
 ```
