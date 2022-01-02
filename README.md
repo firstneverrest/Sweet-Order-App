@@ -393,3 +393,15 @@ class _UserListState extends State<UserList> {
 ## Extract Widget
 
 Click refactor at the widget and choose 'extract widget' to automatically extract widget to another class.
+
+## Function as parameters
+
+You can pass the function as parameters to modify value in the parent state.
+
+```dart
+class UserCard extends StatelessWidget {
+  final User user;
+  final Function() delete; // define dynamic function type (function as parameters)
+  ...
+}
+```
