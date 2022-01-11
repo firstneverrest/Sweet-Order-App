@@ -405,3 +405,49 @@ class UserCard extends StatelessWidget {
   ...
 }
 ```
+
+## Stateful Widgets Lifecycle
+
+1. initState() - called only once when the widget is created and also subscribe to streams that could change the widget data.
+2. build() - builds the widget tree and will be triggered every time you use setState().
+3. dispose() - execute when the widget is removed.
+
+```dart
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(children: <Widget>[
+          TextButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/dessert');
+              },
+              icon: Icon(Icons.food_bank),
+              label: Text('Dessert')),
+        ]),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+}
+
+```
