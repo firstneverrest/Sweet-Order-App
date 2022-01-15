@@ -451,3 +451,21 @@ class _HomeState extends State<Home> {
 }
 
 ```
+
+## Asynchronous Code
+
+Flutter has Future function like setTimeout in JS.
+
+```dart
+  void getData (){
+    String username = await Future.delayed(Duration(seconds: 2), () {
+      return 'Chitsanupong';
+    });
+
+    // work after first Future.delayed is completed
+    String email = await Future.delayed(Duration(seconds: 2), () {
+      return 'example@hotmail.com';
+    });
+  }
+
+```
